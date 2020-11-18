@@ -1,0 +1,61 @@
+{
+  "name": "redirect-service",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/app.ts",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "inversify": "^5.0.1",
+    "inversify-binding-decorators": "^4.0.0",
+    "pg": "^8.5.0",
+    "pg-hstore": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.3.5",
+    "swagger-ui-express": "^4.1.4",
+    "tsoa": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@types/body-parser": "^1.19.0",
+    "@types/chai": "^4.2.14",
+    "@types/chai-as-promised": "^7.1.3",
+    "@types/express": "^4.17.9",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^14.14.7",
+    "@types/sequelize": "^4.28.9",
+    "@types/swagger-ui-express": "^4.1.2",
+    "@types/validator": "^13.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "esm": "^3.2.25",
+    "import-sort-style-module": "^6.0.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "scripts": {
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register -r dotenv/config -r reflect-metadata -r esm 'src/test/**/*.test.ts'",
+    "test-debug": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha debug -r ts-node/register -r dotenv/config -r reflect-metadata -r esm 'src/test/**/*.test.ts'",
+    "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "build": "tsoa spec-and-routes && tsc",
+    "start": "node dist/src/server.js"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  }
+}

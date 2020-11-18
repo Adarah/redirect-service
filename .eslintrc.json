@@ -1,0 +1,15 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["airbnb-typescript/base", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "object-curly-newline": "off",
+    "class-methods-use-this": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.ts"]}],
+    "no-underscore-dangle": "allowAfterThis"
+  }
+}
